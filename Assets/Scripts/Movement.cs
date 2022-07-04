@@ -19,7 +19,7 @@ public class Movement : AnimationEventSource
 
     private Vector2 ColliderCenter => (Vector2)transform.position + _physicCenterDelta;
 
-    public override UnityEvent<State> StateNameChanged { get; } = new UnityEvent<State>();
+    public override UnityEvent<State> StateChanged { get; } = new UnityEvent<State>();
 
 
     private void Awake()
@@ -68,6 +68,6 @@ public class Movement : AnimationEventSource
         if (state == _state) return;
 
         _state = state;
-        StateNameChanged.Invoke(state);
+        StateChanged.Invoke(state);
     }
 }

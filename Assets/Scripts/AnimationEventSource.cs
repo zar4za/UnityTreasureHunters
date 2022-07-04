@@ -9,5 +9,5 @@ public abstract class AnimationEventSource : MonoBehaviour
         Running,
         Jumping
     }
-    public abstract UnityEvent<State> StateNameChanged { get; }
+    public abstract UnityEvent<State> StateChanged { get; }
 }

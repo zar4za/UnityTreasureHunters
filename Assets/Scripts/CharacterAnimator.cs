@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(AnimationEventSource))]
 [RequireComponent(typeof(Animator))]
-public class PirateAnimator : MonoBehaviour
+public class CharacterAnimator : MonoBehaviour
 {
     private Animator _animator;
     private AnimationEventSource _character;
@@ -12,7 +12,7 @@ public class PirateAnimator : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _character = GetComponent<AnimationEventSource>();
-        _character.StateNameChanged.AddListener(ChangeAnimation);
+        _character.StateChanged.AddListener(ChangeAnimation);
     }
 
     public void ChangeAnimation(AnimationEventSource.State state)
@@ -24,6 +24,6 @@ public class PirateAnimator : MonoBehaviour
 
     private void OnDisable()
     {
-        _character.StateNameChanged.RemoveListener(ChangeAnimation);
+        _character.StateChanged.RemoveListener(ChangeAnimation);
     }
 }
