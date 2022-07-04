@@ -2885,7 +2885,6 @@ GameObject:
   - component: {fileID: 1964826834}
   - component: {fileID: 1964826833}
   - component: {fileID: 1964826835}
-  - component: {fileID: 1964826836}
   m_Layer: 3
   m_Name: Terrain
   m_TagString: Untagged
@@ -3415,18 +3414,6 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!114 &1964826836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964826831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85952ed92894fa44382926df66770eca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2042062170
 GameObject:
   m_ObjectHideFlags: 0
@@ -3570,8 +3557,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.055}
-  m_Size: {x: 0.5, y: 0.9}
+  m_Offset: {x: 0, y: 0.063926935}
+  m_Size: {x: 0.5, y: 0.8821461}
   m_Direction: 0
 --- !u!114 &2042062176
 MonoBehaviour:
@@ -3586,7 +3573,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _horizontalSpeed: 5
-  _jumpForce: 50
+  _jumpForce: 200
+  _minGroundDistance: 0.1
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8

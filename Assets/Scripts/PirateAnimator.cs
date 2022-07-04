@@ -1,23 +1,29 @@
-using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Movement))]
+[RequireComponent(typeof(AnimationEventSource))]
 [RequireComponent(typeof(Animator))]
 public class PirateAnimator : MonoBehaviour
 {
-    private Movement _movement;
     private Animator _animator;
+    private AnimationEventSource _character;
+    private AnimationEventSource.State _state = AnimationEventSource.State.Idle;
 
-    //private void Start()
-    //{
-    //    _movement = GetComponent<Movement>();
-    //    _animator = GetComponent<Animator>();
-    //    _movement.StateChanged.AddListener(ChangeAnimation);
-    //}
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+        _character = GetComponent<AnimationEventSource>();
+        _character.StateNameChanged.AddListener(ChangeAnimation);
+    }
 
-    //private void ChangeAnimation()
-    //{
-    //    Debug.Log($"Changing animation to " + state.ToString());
-    //    _animator.SetTrigger(state.ToString());
-    //}
+    public void ChangeAnimation(AnimationEventSource.State state)
+    {
+        _animator.ResetTrigger(_state.ToString());
+        _animator.SetTrigger(state.ToString());
+        _state = state;
+    }
+
+    private void OnDisable()
+    {
+        _character.StateNameChanged.RemoveListener(ChangeAnimation);
+    }
 }
